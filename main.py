@@ -1,7 +1,7 @@
 import numpy as np
 
 
-X = [1, 2, 3, 4]
+X = [1, 2, 3, 5]
 
 
 class NeuralNetwork:
