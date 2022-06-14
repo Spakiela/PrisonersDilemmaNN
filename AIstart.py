@@ -1,7 +1,13 @@
 import numpy as np
+import nnfs
+from nnfs.datasets import spiral_data
+
+nnfs.init()
 
 
 X = [1, 2, 3, 5]
+
+X, y = spiral_data(100, 3)
 
 
 class NeuralNetwork:
@@ -19,10 +25,8 @@ class Activation_ReLU:
         self.output = np.maximum(0, inputs)
 
 
-layer1 = NeuralNetwork(learning_rate=.1, inputs=4, neurons=5)
-layer2 = NeuralNetwork(learning_rate=.1, inputs=5, neurons=2)
-
+layer1 = NeuralNetwork(learning_rate=.1, inputs=2, neurons=5)
+activation1 = Activation_ReLU()
 layer1.forward(X)
-print(layer1.output)
-layer2.forward(layer1.output)
-print(layer2.output)
+activation1.forward(layer1.output)
+print(activation1.output)
